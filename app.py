@@ -1,6 +1,7 @@
 # </> DISGEND BY XZA TEAM AND MODY 👻
 from flask import Flask, request, jsonify
 import requests
+import os
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from google.protobuf import descriptor as _descriptor
@@ -102,4 +103,5 @@ def add_item():
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
